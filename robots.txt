@@ -1,2 +1,14 @@
 User-agent: *
 Allow: /
+
+# A area administrativa nao tem por que aparecer em buscador: e area logada,
+# sem conteudo publico. Nao e medida de seguranca - quem protege os dados e o
+# RLS do Supabase - so evita gastar rastreamento e exibir tela de login no
+# resultado de busca.
+Disallow: /admin
+Disallow: /login
+
+# Sem esta linha o Google so descobre as paginas seguindo links. Com ela, ja
+# recebe a lista pronta - e o Search Console passa a reportar o estado de cada
+# URL do sitemap.
+Sitemap: https://taquionica.com.br/sitemap.xml
