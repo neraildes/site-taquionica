@@ -1,0 +1,1 @@
+import{t as e}from"./jsx-runtime-NZYk81nU.js";var t=e(),n=({error:e})=>(0,t.jsx)(`main`,{className:`min-h-screen grid place-items-center bg-[oklch(0.14_0.03_258)] p-6 text-white`,children:(0,t.jsxs)(`p`,{className:`max-w-md text-center text-white/70`,children:[`Não foi possível carregar esta solicitação de autorização:`,` `,String(e?.message??e)]})});export{n as errorComponent};
