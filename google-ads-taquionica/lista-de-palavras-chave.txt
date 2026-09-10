@@ -1,0 +1,237 @@
+PALAVRAS-CHAVE DA CAMPANHA TAQUIONICA
+193 termos. Sem marca = frase + exata. Ampla so no grupo Descoberta Ampla.
+
+==========================================================================
+TQ | Pesquisa | Projetos de Engenharia
+==========================================================================
+
+  Produtos Eletrônicos e Hardware  (28 termos)
+    - desenvolvimento de produtos eletrônicos
+    - empresa de desenvolvimento de produtos eletrônicos
+    - desenvolvimento de projetos eletrônicos
+    - empresa de projetos eletrônicos
+    - desenvolvimento de protótipos eletrônicos
+    - desenvolvimento de protótipo eletrônico
+    - protótipo eletrônico funcional
+    - criar produto eletrônico
+    - engenharia de produto eletrônico
+    - transformar ideia em produto eletrônico
+    - desenvolvimento de hardware
+    - empresa de desenvolvimento de hardware
+    - projeto de hardware eletrônico
+    - desenvolvimento de hardware sob medida
+    - projeto de circuito eletrônico
+    - engenharia eletrônica sob demanda
+    - desenvolvimento de eletrônica embarcada
+    - projeto eletrônico industrial
+    - empresa de engenharia eletrônica
+    - design house eletrônica
+    - design house de eletrônica
+    - terceirização de engenharia eletrônica
+    - outsourcing de engenharia eletrônica
+    - parceiro de engenharia eletrônica
+    - empresa de p&d eletrônica
+    - desenvolvimento de equipamento eletrônico industrial
+    - desenvolvimento de equipamento sob encomenda
+    - fabricante de equipamento eletrônico sob medida
+
+  Projeto de PCB  (13 termos)
+    - desenvolvimento de pcb
+    - projeto de pcb
+    - layout de pcb
+    - projeto de placa eletrônica
+    - desenvolvimento de placa de circuito impresso
+    - projeto de placa de circuito impresso
+    - revisão de projeto de pcb
+    - empresa de projeto de pcb
+    - design de placa eletrônica
+    - layout de placa eletrônica
+    - roteamento de pcb
+    - projeto de pcb multicamadas
+    - empresa de layout de pcb
+
+  Firmware e Embarcados  (22 termos)
+    - desenvolvimento de firmware
+    - empresa de desenvolvimento de firmware
+    - empresa de firmware
+    - programação de firmware
+    - desenvolvimento de firmware embarcado
+    - firmware sob medida
+    - desenvolvimento de sistemas embarcados
+    - empresa de sistemas embarcados
+    - firmware para microcontrolador
+    - programação de microcontrolador
+    - desenvolvimento de software embarcado
+    - terceirização de desenvolvimento de firmware
+    - desenvolvimento embarcado para indústria
+    - atualização remota de firmware
+    - programação esp32
+    - desenvolvimento com esp32
+    - firmware esp32
+    - desenvolvimento mqtt
+    - integração modbus
+    - comunicação modbus industrial
+    - firmware com wifi e bluetooth
+    - integração can bus industrial
+
+  Equipamento Médico e Eletromédico  (12 termos)
+    - desenvolvimento de equipamento médico
+    - desenvolvimento de equipamento eletromédico
+    - projeto de equipamento médico
+    - projeto de equipamento eletromédico
+    - empresa de desenvolvimento de equipamento médico
+    - desenvolvimento de dispositivo médico
+    - eletrônica para equipamento médico
+    - firmware para equipamento médico
+    - projeto de eletrônica médica
+    - engenharia de equipamento médico
+    - desenvolvimento de equipamento hospitalar
+    - desenvolvimento de produto para saúde
+
+  Diagnóstico e Consultoria Técnica  (12 termos)
+    - diagnóstico técnico de equipamento eletrônico
+    - análise de falha em placa eletrônica
+    - análise de falha em equipamento eletrônico
+    - consultoria em eletrônica
+    - consultoria em hardware eletrônico
+    - consultoria em sistemas embarcados
+    - revisão de projeto eletrônico
+    - análise de projeto eletrônico
+    - laudo técnico de equipamento eletrônico
+    - problema de ruído em placa eletrônica
+    - falha intermitente em equipamento eletrônico
+    - empresa de consultoria em eletrônica
+
+==========================================================================
+TQ | Pesquisa | Indústria Conectada
+==========================================================================
+
+  Monitoramento Remoto e Telemetria  (13 termos)
+    - monitoramento remoto de equipamentos
+    - sistema de monitoramento remoto
+    - monitoramento remoto industrial
+    - telemetria de equipamentos
+    - telemetria industrial
+    - empresa de telemetria industrial
+    - sistema de telemetria sob medida
+    - monitoramento de máquinas em tempo real
+    - monitoramento de ativos industriais
+    - alerta de falha em equipamento
+    - monitoramento remoto de motores
+    - monitoramento de temperatura remoto industrial
+    - reduzir parada de máquina
+
+  IoT Industrial  (10 termos)
+    - soluções iot industrial
+    - empresa de iot
+    - empresa de iot industrial
+    - desenvolvimento iot
+    - desenvolvimento de solução iot
+    - projeto de iot para indústria
+    - sensores iot industriais
+    - gateway iot industrial
+    - rede de sensores conectados
+    - iot industrial  [so exata]
+
+  Coleta de Dados e Produção  (16 termos)
+    - coleta de dados de máquinas
+    - coleta de dados chão de fábrica
+    - coleta automática de dados de produção
+    - sistema de coleta de dados industrial
+    - monitoramento de produção industrial
+    - sistema de monitoramento de produção
+    - monitoramento de chão de fábrica
+    - apontamento de produção automático
+    - sistema de apontamento de produção
+    - sistema de oee
+    - monitoramento de oee
+    - indicador de oee industrial
+    - monitoramento de parada de máquina
+    - conectar máquina antiga à rede
+    - integração de máquinas com sistema
+    - digitalização do chão de fábrica
+
+  Manutenção Preditiva  (7 termos)
+    - manutenção preditiva industrial
+    - sistema de manutenção preditiva
+    - manutenção preditiva com iot
+    - manutenção industrial com sensores
+    - monitoramento de manutenção industrial
+    - sensor de vibração para manutenção preditiva
+    - monitoramento de vibração de motores
+
+  Retrofit e Modernização de Máquinas  (12 termos)
+    - retrofit de máquinas
+    - retrofit de máquinas industriais
+    - retrofit de equipamento industrial
+    - retrofit industrial
+    - empresa de retrofit de máquinas
+    - modernização de máquinas industriais
+    - modernização de equipamentos industriais
+    - modernização de linha de produção
+    - automatizar máquina antiga
+    - atualizar máquina antiga
+    - troca de comando de máquina
+    - eletrônica nova para máquina antiga
+
+  Aplicativos e Dashboards  (11 termos)
+    - aplicativo para controlar equipamento
+    - aplicativo para monitorar equipamento
+    - desenvolvimento de aplicativo para equipamento
+    - aplicativo conectado a equipamento
+    - app para equipamento industrial
+    - aplicativo bluetooth para equipamento
+    - dashboard industrial
+    - dashboard de monitoramento industrial
+    - desenvolvimento de dashboard industrial
+    - software de monitoramento de equipamentos
+    - sistema de monitoramento de equipamentos
+
+  Telemetria Agrícola e Solar  (8 termos)
+    - telemetria de máquinas agrícolas
+    - telemetria agrícola
+    - monitoramento de máquinas agrícolas
+    - automação de implementos agrícolas
+    - eletrônica embarcada agrícola
+    - monitoramento de usina fotovoltaica
+    - telemetria de usina solar
+    - automação para usina fotovoltaica
+
+==========================================================================
+TQ | Pesquisa | Termos Amplos
+==========================================================================
+
+  Automação Industrial  (14 termos)
+    - empresa de automação industrial
+    - automação industrial sob medida
+    - automação industrial personalizada
+    - projeto de automação industrial
+    - serviços de automação industrial
+    - integrador de automação industrial
+    - empresa de automação industrial em ribeirão preto
+    - automação de máquinas
+    - automação de processos industriais
+    - automação de equipamentos
+    - sistema de controle de máquinas
+    - sistema de controle eletrônico
+    - controle de motores e bombas
+    - automação industrial  [so exata]
+
+  Indústria 4.0  (7 termos)
+    - soluções indústria 4.0
+    - indústria 4.0 para empresas
+    - projeto indústria 4.0
+    - empresa de indústria 4.0
+    - digitalização da indústria
+    - transformação digital industrial
+    - indústria 4.0  [so exata]
+
+  Descoberta Ampla  (8 termos)
+    - desenvolvimento de produtos eletrônicos  [ampla]
+    - desenvolvimento de firmware  [ampla]
+    - empresa de engenharia eletrônica  [ampla]
+    - monitoramento remoto de equipamentos  [ampla]
+    - coleta de dados de máquinas  [ampla]
+    - retrofit de máquinas industriais  [ampla]
+    - desenvolvimento de equipamento médico  [ampla]
+    - telemetria industrial  [ampla]

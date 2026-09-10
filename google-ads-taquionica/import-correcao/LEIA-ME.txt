@@ -1,0 +1,103 @@
+PASTA DE CORRECAO: o que ADICIONAR na conta
+======================================================================
+
+Estes arquivos contem SOMENTE o que e novo. Nao ha nada aqui que ja
+esteja publicado, entao pode importar sem medo de duplicar, desde que
+voce siga os passos manuais antes.
+
+
+O QUE MUDOU NESTA RODADA
+------------------------
+Tres landing pages novas entraram no ar:
+
+  /terceirizacao-de-engenharia-eletronica
+  /telemetria-agricola-e-solar
+  /projeto-de-pcb
+
+Com elas, um grupo novo nasce e dois grupos passam a apontar para
+pagina propria em vez de dividir pagina com outro assunto.
+
+
+PASSO 1: REMOVER 7 PALAVRAS-CHAVE (fazer ANTES de importar)
+-----------------------------------------------------------
+No grupo "Produtos Eletronicos e Hardware", remova estes 7 termos. Eles
+mudaram para o grupo novo de terceirizacao. Se ficarem nos dois, os dois
+grupos disputam o mesmo leilao.
+
+  - terceirização de engenharia eletrônica
+  - outsourcing de engenharia eletrônica
+  - empresa de engenharia eletrônica
+  - design house eletrônica
+  - design house de eletrônica
+  - parceiro de engenharia eletrônica
+  - empresa de p&d eletrônica
+
+Cada um aparece duas vezes, em frase e em exata. Sao 14 linhas no total.
+
+
+PASSO 2: TROCAR A URL DE 2 ANUNCIOS (na mao, nao tem arquivo)
+--------------------------------------------------------------
+Anuncio nao tem nome unico: importar um com URL diferente CRIA um
+segundo anuncio em vez de atualizar o existente. Por isso estes dois se
+fazem editando o campo, nao importando.
+
+  Grupo "Projeto de PCB"
+    de:   https://taquionica.com.br/desenvolvimento-produtos-eletronicos
+    para: https://taquionica.com.br/projeto-de-pcb
+
+  Grupo "Telemetria Agricola e Solar"
+    de:   https://taquionica.com.br/monitoramento-remoto-iot
+    para: https://taquionica.com.br/telemetria-agricola-e-solar
+
+No mesmo painel, aproveite e ajuste o teto de lance do grupo
+"Telemetria Agricola e Solar" de R$ 4,50 para R$ 5,00. Com pagina
+propria a relevancia sobe, e o grupo passa a merecer o mesmo teto dos
+outros qualificados.
+
+
+PASSO 3: IMPORTAR, NESTA ORDEM
+-------------------------------
+  1. 1-grupo-terceirizacao.csv        cria o grupo, teto R$ 5,50
+  2. 2-keywords-terceirizacao.csv     30 criterios, frase e exata
+  3. 3-anuncio-terceirizacao.csv      o anuncio responsivo do grupo
+  4. 4-negativas-terceirizacao.csv    negativas do grupo
+  5. 5-sitelinks-novos.csv            3 sitelinks novos x 3 campanhas
+  6. 6-snippet-servicos.csv           repoe o snippet que voce apagou
+
+A ordem importa: o grupo precisa existir antes das palavras-chave, e as
+palavras-chave antes das negativas.
+
+
+PASSO 4: CONFERIR
+-----------------
+Depois de Verificar alteracoes e Publicar:
+
+  Campanha "TQ | Pesquisa | Projetos de Engenharia"
+    Grupos de anuncios ......... 5
+    Palavras-chave ............. 180
+    Anuncios ................... 5
+
+  Total das tres campanhas
+    Grupos ..................... 15
+    Palavras-chave ............. 366
+    Anuncios ................... 15
+    Sitelinks por campanha ..... 10
+
+  E o anuncio do grupo "Projeto de PCB" tem que apontar para
+  /projeto-de-pcb, nao mais para /desenvolvimento-produtos-eletronicos.
+
+
+SOBRE O SNIPPET "TIPOS"
+-----------------------
+Nao ha arquivo para ele aqui de proposito, porque voce ja tem um na
+conta. Abra o "Tipos" e confira os valores. Os corretos sao:
+
+  Monitoramento remoto
+  Retrofit de maquinas
+  Coleta de dados
+  IoT industrial
+  Aplicativos
+  Produtos eletronicos
+
+Se ainda aparecer "Equipamento medico" na lista, troque por
+"Aplicativos" na mao.

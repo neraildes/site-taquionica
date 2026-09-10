@@ -1,0 +1,29 @@
+PROGRAMACAO DE ANUNCIOS: cadastrar na mao, nao existe CSV que funcione
+======================================================================
+
+O Google Ads Editor em portugues ignora a programacao de anuncios vinda
+de CSV. Foram duas tentativas, as duas recusadas. Faca pela interface.
+
+No Google Ads Editor, para cada uma das tres campanhas:
+
+  1. Selecione a campanha na arvore da esquerda.
+  2. Painel de tipos > Palavras-chave e segmentacao > Programacao de anuncios.
+  3. Adicionar programacao de anuncios.
+  4. Segunda a sexta, das 08:00 as 18:00, ajuste de lance em branco.
+
+As campanhas:
+
+  - TQ | Pesquisa | Projetos de Engenharia
+  - TQ | Pesquisa | Indústria Conectada
+  - TQ | Pesquisa | Termos Amplos
+
+POR QUE 8h AS 18h, DE SEGUNDA A SEXTA
+
+Gerente de engenharia e de manutencao pesquisa fornecedor no expediente.
+Fora dele sobra curioso, e o clique custa igual. Concentrar a verba em 50
+horas por semana em vez de 168 multiplica a presenca nos leiloes que
+importam, sem aumentar o orcamento.
+
+Nao e obrigatorio para subir a campanha. Sem programacao ela roda 24 por 7,
+o que nao quebra nada, so espalha a verba por horario pior. Da para deixar
+para depois da primeira semana e decidir com o relatorio de horario na mao.
