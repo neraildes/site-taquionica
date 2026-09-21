@@ -164,4 +164,21 @@ gtag('config', 'AW-18346942371');</script><style>html{scroll-behavior:smooth}det
       btn.setAttribute('aria-expanded', 'false');
     });
   });
-})();</script><script src="/assets/tq-lead.js" defer></script></body></html>
+})();</script><script>(function () {
+  var LEAD = 'AW-18346942371/kNoCPGYhoAdEKO_wKxE';
+  // So conta se veio de um envio confirmado nesta sessao. Abrir /obrigado
+  // direto pela URL nao gera conversao, e recarregar a pagina nao conta duas
+  // vezes, porque a marca e consumida aqui.
+  var confirmado = true;
+  try {
+    confirmado = sessionStorage.getItem('tq_lead_ok') !== null;
+    if (confirmado) sessionStorage.removeItem('tq_lead_ok');
+  } catch (e) {
+    // Sem sessionStorage (navegacao privada, storage bloqueado) nao da para
+    // saber a procedencia. Contar e melhor que perder o lead do relatorio.
+    confirmado = true;
+  }
+  if (!confirmado) return;
+  if (typeof gtag !== 'function') return;
+  gtag('event', 'conversion', { send_to: LEAD, transport_type: 'beacon' });
+})();</script></body></html>
