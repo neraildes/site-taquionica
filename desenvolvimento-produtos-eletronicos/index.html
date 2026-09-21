@@ -2,14 +2,9 @@
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'AW-18346942371');</script><script>(function () {
-  var CONVERSAO = 'AW-18346942371/A6KXCIeh5uEcEKO_wKxE';
-  var jaConverteu = false;
-  function envia(nome) {
+  function ev(nome) {
     if (typeof gtag !== 'function') return;
     gtag('event', nome, { transport_type: 'beacon' });
-    if (jaConverteu) return;
-    jaConverteu = true;
-    gtag('event', 'conversion', { send_to: CONVERSAO, transport_type: 'beacon' });
   }
   document.addEventListener('click', function (e) {
     var alvo = e.target;
@@ -17,11 +12,10 @@ gtag('config', 'AW-18346942371');</script><script>(function () {
     var link = alvo.closest('a[href]');
     if (!link) return;
     var href = link.getAttribute('href') || '';
-    if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp.com') > -1) envia('contato_whatsapp');
-    else if (href.indexOf('mailto:') === 0) envia('contato_email');
-    else if (href.indexOf('tel:') === 0) envia('contato_telefone');
+    if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp.com') > -1) ev('WhatsApp_Click');
+    else if (href.indexOf('tel:') === 0) ev('Telefone_Click');
+    else if (href.indexOf('mailto:') === 0) ev('Email_Click');
   }, true);
-  document.addEventListener('submit', function () { envia('formulario_enviado'); }, true);
 })();</script><style>html{scroll-behavior:smooth}details.lp-faq-item summary{list-style:none}details.lp-faq-item summary::-webkit-details-marker{display:none}details.lp-faq-item .lp-faq-chevron{transition:transform .2s ease}details.lp-faq-item[open] .lp-faq-chevron{transform:rotate(180deg)}.lp-cta-wrap{white-space:normal;height:auto;min-height:3rem;padding-top:.75rem;padding-bottom:.75rem;text-align:center}@media (max-width:639px){.lp-cta-wrap{width:100%}}</style><style>.lp-stepper{position:relative}.lp-stepper::before{content:"";position:absolute;top:.25rem;bottom:.25rem;left:1.25rem;width:2px;background:rgba(15,23,42,.12)}.lp-stepper>li{position:relative;z-index:1}
 .tq-cta-grid{display:grid;gap:2.5rem;align-items:start}
 @media (min-width:1024px){.tq-cta-grid{grid-template-columns:1fr 1fr;gap:3.5rem}}
