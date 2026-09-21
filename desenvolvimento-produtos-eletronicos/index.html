@@ -2,19 +2,70 @@
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'AW-18346942371');</script><script>(function () {
-  function ev(nome) {
+  // Uma instalacao por pagina. Se por qualquer motivo este script aparecer
+  // duas vezes, o segundo nao instala listener, senao cada clique contaria
+  // em dobro no Google Ads.
+  if (window.__tqRastreio) return;
+  window.__tqRastreio = true;
+
+  var WHATSAPP = 'AW-18346942371/Nm2QCNqjj4AdEKO_wKxE';
+  var TELEFONE = 'AW-18346942371/rTT8CNb5iIAdEKO_wKxE';
+  var APOSENTADO = 'A6KXCIeh5uEcEKO_wKxE';
+
+  // Filtro sobre o gtag. O aplicativo React compilado ainda dispara a conversao
+  // do rotulo antigo no clique de WhatsApp, o que contaria o mesmo clique duas
+  // vezes e alimentaria uma acao de conversao que nao vale mais. Aqui ela e
+  // descartada antes de sair; todo o resto passa intacto.
+  if (typeof window.gtag === 'function' && !window.gtag.__tqFiltrado) {
+    var original = window.gtag;
+    var filtrado = function () {
+      var a = arguments;
+      if (a[0] === 'event' && a[1] === 'conversion' && a[2] &&
+          typeof a[2].send_to === 'string' && a[2].send_to.indexOf(APOSENTADO) > -1) return;
+      return original.apply(window, a);
+    };
+    filtrado.__tqFiltrado = true;
+    window.gtag = filtrado;
+  }
+
+  // transport_type 'beacon' usa navigator.sendBeacon: o pedido sobrevive a
+  // saida da pagina. E por isso que nao ha atraso artificial nem
+  // redirecionamento proprio aqui - o clique segue para o WhatsApp ou para o
+  // discador na hora, e a conversao vai junto.
+  function converte(rotulo) {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'conversion', { send_to: rotulo, transport_type: 'beacon' });
+  }
+
+  function evento(nome) {
     if (typeof gtag !== 'function') return;
     gtag('event', nome, { transport_type: 'beacon' });
   }
+
+  function ehWhatsApp(href) {
+    return href.indexOf('wa.me') > -1 ||
+           href.indexOf('api.whatsapp.com') > -1 ||
+           href.indexOf('web.whatsapp.com') > -1 ||
+           href.indexOf('whatsapp://') === 0;
+  }
+
+  // Captura no document: pega tambem os links que o React cria depois,
+  // sem precisar reinstalar listener a cada renderizacao.
   document.addEventListener('click', function (e) {
     var alvo = e.target;
     if (!alvo || typeof alvo.closest !== 'function') return;
     var link = alvo.closest('a[href]');
     if (!link) return;
+
+    // Um clique so pode contar uma vez, mesmo que o evento volte a passar
+    // por aqui por causa de algum reenvio programatico.
+    if (e.__tqContado) return;
+    e.__tqContado = true;
+
     var href = link.getAttribute('href') || '';
-    if (href.indexOf('wa.me') > -1 || href.indexOf('api.whatsapp.com') > -1) ev('WhatsApp_Click');
-    else if (href.indexOf('tel:') === 0) ev('Telefone_Click');
-    else if (href.indexOf('mailto:') === 0) ev('Email_Click');
+    if (ehWhatsApp(href)) converte(WHATSAPP);
+    else if (href.indexOf('tel:') === 0) converte(TELEFONE);
+    else if (href.indexOf('mailto:') === 0) evento('Email_Click');
   }, true);
 })();</script><style>html{scroll-behavior:smooth}details.lp-faq-item summary{list-style:none}details.lp-faq-item summary::-webkit-details-marker{display:none}details.lp-faq-item .lp-faq-chevron{transition:transform .2s ease}details.lp-faq-item[open] .lp-faq-chevron{transform:rotate(180deg)}.lp-cta-wrap{white-space:normal;height:auto;min-height:3rem;padding-top:.75rem;padding-bottom:.75rem;text-align:center}@media (max-width:639px){.lp-cta-wrap{width:100%}}</style><style>.lp-stepper{position:relative}.lp-stepper::before{content:"";position:absolute;top:.25rem;bottom:.25rem;left:1.25rem;width:2px;background:rgba(15,23,42,.12)}.lp-stepper>li{position:relative;z-index:1}
 .tq-cta-grid{display:grid;gap:2.5rem;align-items:start}
