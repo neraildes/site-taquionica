@@ -49,11 +49,49 @@
     return guardado;
   }
 
-  // Marca que UM envio foi confirmado. A pagina /obrigado so conta conversao
-  // se encontrar esta marca, e a apaga em seguida. Assim, abrir /obrigado
-  // direto pela URL nao gera conversao, e recarregar a pagina nao conta duas.
-  function marcaEnvioConfirmado() {
-    try { sessionStorage.setItem('tq_lead_ok', String(Date.now())); } catch (e) {}
+  // Conversao do Google Ads "Formulario_Enviado_Sucesso" (acao por evento,
+  // categoria Enviar formulario de lead), criada em 06/10/2026.
+  var CONVERSAO_FORMULARIO = 'AW-18346942371/fZ7zCOir3ZIdEKO_wKxE';
+
+  // Dispara a conversao UMA vez, aqui, somente depois que o servico de
+  // formulario confirmou o envio no corpo da resposta. A pagina /obrigado nao
+  // dispara nada: abrir /obrigado direto, recarregar ou voltar pelo navegador
+  // nao gera evento. O transaction_id unico por envio faz o Google Ads
+  // descartar qualquer repeticao do mesmo envio.
+  function novoIdEnvio() {
+    var r = '';
+    try {
+      var b = new Uint8Array(6);
+      crypto.getRandomValues(b);
+      for (var i = 0; i < b.length; i++) r += ('0' + b[i].toString(16)).slice(-2);
+    } catch (e) { r = Math.random().toString(16).slice(2, 14); }
+    return 'tq-' + Date.now().toString(36) + '-' + r;
+  }
+
+  function registraConversaoESegue(idEnvio, destino) {
+    var foi = false;
+    function segue() {
+      if (foi) return;
+      foi = true;
+      window.location.href = destino;
+    }
+    if (typeof window.gtag !== 'function') { segue(); return; }
+    try {
+      window.gtag('event', 'conversion', {
+        send_to: CONVERSAO_FORMULARIO,
+        transaction_id: idEnvio,
+        transport_type: 'beacon',
+        event_callback: segue
+      });
+    } catch (e) { segue(); return; }
+    // Se o gtag estiver bloqueado ou lento, o visitante nao fica preso.
+    setTimeout(segue, 1500);
+  }
+
+  // Marca local, usada so para a /obrigado saber que veio de um envio
+  // (exibicao). Nao gera conversao.
+  function marcaEnvioConfirmado(idEnvio) {
+    try { sessionStorage.setItem('tq_lead_ok', idEnvio); } catch (e) {}
   }
 
   // O diagnostico completo vai SEMPRE para o console, mesmo quando a pessoa
@@ -153,6 +191,20 @@
       mostraErro(GENERICA);
     }
 
+    // Envio ja confirmado nesta pagina. Se a pessoa voltar pelo navegador
+    // (pagina restaurada do cache), o formulario continua travado e avisa,
+    // em vez de permitir reenviar o mesmo projeto por engano.
+    var enviadoId = null;
+    window.addEventListener('pageshow', function (ev) {
+      if (!ev.persisted || !enviadoId || !botao) return;
+      botao.disabled = true;
+      botao.textContent = 'Projeto enviado';
+      if (erro) {
+        erro.textContent = 'Este projeto já foi enviado. Se quiser complementar, fale com a gente pelo WhatsApp.';
+        erro.style.display = 'block';
+      }
+    });
+
     if (!SERVICO) {
       diagnostico({
         ok: false,
@@ -181,6 +233,10 @@
       // investimento, prazo, os seis utm_/gclid e landing_page.
       var dados = new FormData(f);
       var assunto = 'Nova avaliacao de projeto - ' + location.pathname;
+      // Identificador deste envio: vai no e-mail e e o transaction_id da
+      // conversao, para cruzar lead recebido com conversao no Google Ads.
+      var idEnvio = novoIdEnvio();
+      dados.append('id_envio', idEnvio);
 
       if (SERVICO === 'web3forms') {
         dados.append('access_key', WEB3FORMS_KEY);
@@ -241,8 +297,9 @@
             ok: true, url: ENDPOINT, status: status, statusText: statusText,
             enviado: enviado, resposta: resposta
           });
-          marcaEnvioConfirmado();
-          window.location.href = DESTINO_SUCESSO;
+          enviadoId = idEnvio;
+          marcaEnvioConfirmado(idEnvio);
+          registraConversaoESegue(idEnvio, DESTINO_SUCESSO);
         })
         .catch(function (err) {
           if (corta) clearTimeout(corta);
