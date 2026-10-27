@@ -1,0 +1,45 @@
+/* Taquionica — acabamento da identidade visual (carrega depois do CSS compilado).
+   Cor da marca: #E77817 = oklch(69% .17 54). */
+
+:root {
+  --tq-laranja: oklch(69% .17 54);
+  --tq-laranja-escuro: oklch(55% .16 50);
+  --tq-ambar: oklch(84% .13 75);
+}
+
+::selection { background: color-mix(in oklab, var(--tq-laranja) 28%, transparent); }
+
+/* Logo maior no cabeçalho (barra tem 5rem / 6rem de altura) */
+header img[alt^="Taquionica"] { height: 3.5rem; }
+@media (min-width: 768px) { header img[alt^="Taquionica"] { height: 4rem; } }
+
+/* Tipografia: títulos mais compactos; H1 do hero cabe em menos linhas */
+h1, h2, h3 { letter-spacing: -.03em; text-wrap: balance; }
+@media (min-width: 1024px) {
+  h1.lg\:text-6xl { font-size: 3.35rem; line-height: 1.06; }
+}
+@media (min-width: 1280px) {
+  h1.lg\:text-6xl { font-size: 3.6rem; }
+}
+
+/* Cards: cantos mais generosos, filete laranja ao passar o mouse */
+.card-surface { border-radius: 1rem; }
+.card-hover { position: relative; overflow: hidden; }
+.card-hover::after {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px;
+  background: var(--gradient-accent); opacity: 0; transition: opacity .2s ease-out;
+}
+.card-hover:hover { box-shadow: 0 16px 36px -18px color-mix(in oklab, var(--tq-laranja) 55%, transparent); }
+.card-hover:hover::after { opacity: 1; }
+
+/* Links do rodapé e texto com hover ganham a cor da marca */
+footer a:hover { color: var(--tq-ambar); }
+
+/* Aviso de cookies: menor e discreto */
+.z-\[60\].bottom-4 { bottom: .75rem; left: .75rem; right: .75rem; }
+@media (min-width: 768px) { .z-\[60\].bottom-4 { right: auto; max-width: 21rem; } }
+.z-\[60\].bottom-4 > div { padding: .7rem .85rem; border-radius: .9rem; }
+.z-\[60\].bottom-4 h4 { font-size: .78rem; }
+.z-\[60\].bottom-4 p { font-size: .68rem; line-height: 1.35; margin-top: .15rem; }
+.z-\[60\].bottom-4 .mt-3 { margin-top: .5rem; }
+.z-\[60\].bottom-4 .gap-3 { gap: .6rem; }
