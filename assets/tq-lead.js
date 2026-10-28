@@ -51,6 +51,10 @@
 
   // Conversao do Google Ads "Formulario_Enviado_Sucesso" (acao por evento,
   // categoria Enviar formulario de lead), criada em 06/10/2026.
+  // Se a acao aparecer como "Configuracao incorreta" no Google Ads, confira
+  // este rotulo em Metas > Conversoes > Formulario_Enviado_Sucesso >
+  // Configurar tag > Instalar por conta propria, e cole aqui o valor de
+  // send_to exatamente como mostrado. E o UNICO lugar que precisa mudar.
   var CONVERSAO_FORMULARIO = 'AW-18346942371/fZ7zCOir3ZIdEKO_wKxE';
 
   // Dispara a conversao UMA vez, aqui, somente depois que o servico de
@@ -68,7 +72,33 @@
     return 'tq-' + Date.now().toString(36) + '-' + r;
   }
 
-  function registraConversaoESegue(idEnvio, destino) {
+  // Conversoes otimizadas (enhanced conversions): e-mail e telefone do
+  // proprio formulario, normalizados como o Google pede (telefone em E.164).
+  // O gtag faz o hash antes de enviar; nada sai em texto puro.
+  function telefoneE164(v) {
+    var d = String(v || '').replace(/\D/g, '');
+    if (!d) return '';
+    if (d.length === 10 || d.length === 11) d = '55' + d;   // BR com DDD, sem pais
+    return '+' + d;
+  }
+  function dadosUsuario(form) {
+    var email = '', fone = '';
+    var cEmail = form.querySelector('[name="email"]');
+    var cFone = form.querySelector('[name="telefone"]');
+    var cContato = form.querySelector('[name="contato"]');   // formularios antigos
+    if (cEmail) email = cEmail.value.trim().toLowerCase();
+    if (cFone) fone = telefoneE164(cFone.value);
+    if (cContato) {
+      var c = cContato.value.trim();
+      if (c.indexOf('@') > -1) email = email || c.toLowerCase(); else fone = fone || telefoneE164(c);
+    }
+    var u = {};
+    if (email) u.email = email;
+    if (fone) u.phone_number = fone;
+    return u;
+  }
+
+  function registraConversaoESegue(idEnvio, destino, usuario) {
     var foi = false;
     function segue() {
       if (foi) return;
@@ -77,8 +107,13 @@
     }
     if (typeof window.gtag !== 'function') { segue(); return; }
     try {
+      if (usuario && (usuario.email || usuario.phone_number)) {
+        window.gtag('set', 'user_data', usuario);
+      }
       window.gtag('event', 'conversion', {
         send_to: CONVERSAO_FORMULARIO,
+        value: 1.0,
+        currency: 'BRL',
         transaction_id: idEnvio,
         transport_type: 'beacon',
         event_callback: segue
@@ -229,8 +264,9 @@
       enviando = true;
       if (botao) { botao.disabled = true; botao.setAttribute('aria-busy', 'true'); botao.textContent = 'Enviando...'; }
 
-      // Campos do formulario: nome, empresa, email, telefone, projeto,
-      // investimento, prazo, os seis utm_/gclid e landing_page.
+      // Campos do formulario (qualificado-v3): nome, empresa, cargo, segmento,
+      // email, telefone, investimento, prazo, estagio, projeto, os seis
+      // utm_/gclid, landing_page e form_versao.
       var dados = new FormData(f);
       var assunto = 'Nova avaliacao de projeto - ' + location.pathname;
       // Identificador deste envio: vai no e-mail e e o transaction_id da
@@ -299,7 +335,7 @@
           });
           enviadoId = idEnvio;
           marcaEnvioConfirmado(idEnvio);
-          registraConversaoESegue(idEnvio, DESTINO_SUCESSO);
+          registraConversaoESegue(idEnvio, DESTINO_SUCESSO, dadosUsuario(f));
         })
         .catch(function (err) {
           if (corta) clearTimeout(corta);
