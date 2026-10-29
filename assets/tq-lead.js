@@ -99,11 +99,11 @@
   }
 
   function registraConversaoESegue(idEnvio, destino, usuario) {
-    var foi = false;
+    var foi = false; try { if (typeof window.oaiq === 'function') window.oaiq('measure', 'lead_created', { type: 'customer_action' }); } catch (e) {}
     function segue() {
       if (foi) return;
       foi = true;
-      window.location.href = destino;
+      setTimeout(function () { window.location.href = destino; }, 500);
     }
     if (typeof window.gtag !== 'function') { segue(); return; }
     try {
